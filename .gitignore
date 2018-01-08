@@ -3,5 +3,6 @@
 !scenes
 !.gitignore
 !.travis.yml
+._*.yaml
 secrets.yaml
 known_devices.yaml
