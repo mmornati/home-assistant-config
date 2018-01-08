@@ -1,8 +1,10 @@
-*
-!*.yaml
-!scenes
-!.gitignore
-!.travis.yml
 ._*.yaml
 secrets.yaml
 known_devices.yaml
+.DS_Store
+.HA_VERSION
+._.DS_Store
+.uuid
+home-assistant.log
+home-assistant_v2.db
+*.conf

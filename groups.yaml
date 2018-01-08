@@ -1,0 +1,46 @@
+default_view:
+  view: yes
+  icon: mdi:home 
+  entities:
+    - binary_sensor.mornatis_secur_motion
+    - binary_sensor.mornatis_secur_someone_known
+    - binary_sensor.mornatis_secur_someone_unknown
+    - camera.mornatis_secur
+    - device_tracker.e0f847108954
+    - device_tracker.mmornati_asusx00idb
+climate:
+  name: Climate & Weather
+  view: yes
+  entities: 
+    - sun.sun
+    - sensor.weather_symbol
+    - sensor.weather_temperature
+    - sensor.weather_wind_speed
+    - sensor.weather_humidity
+    - sensor.weather_precipitation
+internet: 
+  name: Internet
+  view: yes
+  entities:
+    - sensor.speedtest_download
+    - sensor.speedtest_ping
+    - sensor.speedtest_upload
+groundfloor:
+  name: Ground Floor
+  view: yes
+  entities:
+    - light.salon
+    - light.hue_color_salon
+    - light.salle_a_manger
+    - light.hue_color_salle_a_manger
+    - media_player.chromecastmornati
+    - media_player.salon
+firstfloor:
+  name: First Floor
+  view: yes
+  entities:
+    - light.chambre_parents
+    - light.hue_color_chambre
+secondfloor:
+  name: Second Floor
+  view: no
