@@ -30,9 +30,9 @@ groundfloor:
   view: yes
   entities:
     - light.salon
-    - light.hue_color_salon
+    - light.hue_white_lamp_1
     - light.salle_a_manger
-    - light.hue_color_salle_a_manger
+    - light.hue_white_lamp_2
     - media_player.chromecastmornati
     - media_player.salon
 firstfloor:
@@ -41,6 +41,10 @@ firstfloor:
   entities:
     - light.chambre_parents
     - light.hue_color_chambre
+    - light.hue_white_lamp_1_2
+    - light.hue_chambre_amis
+    - light.chambre_bastien
+
 secondfloor:
   name: Second Floor
   view: no
