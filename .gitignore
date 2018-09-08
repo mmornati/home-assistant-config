@@ -8,3 +8,11 @@ known_devices.yaml
 home-assistant.log
 home-assistant_v2.db
 *.conf
+.cloud
+.storage
+OZW_Log.txt
+ip_bans.yaml
+options.xml
+*.sqlite
+._*
+zw*.xml

@@ -2,49 +2,187 @@ default_view:
   view: yes
   icon: mdi:home 
   entities:
+    - group.security
+    - group.trackers
+    - group.smoke
+    - group.home_temperature
+    - group.lights
+security:
+  name: Security
+  entities:
     - binary_sensor.mornatis_secur_motion
     - binary_sensor.mornatis_secur_someone_known
     - binary_sensor.mornatis_secur_someone_unknown
     - camera.mornatis_secur
+trackers:
+  name: Trackers
+  entities: 
     - device_tracker.e0f847108954
-    - device_tracker.mmornati_asusx00idb
+    - device_tracker.ptwnpkid_asusx00idb
+smoke:
+  name: Smoke
+  entities:
+    - binary_sensor.hallway_nest_protect_online
+    - sensor.hallway_nest_protect_battery_health
+    - sensor.hallway_nest_protect_co_status
+    - sensor.hallway_nest_protect_color_status
+    - sensor.hallway_nest_protect_smoke_status
 climate:
   name: Climate & Weather
   view: yes
   entities: 
-    - sun.sun
-    - sensor.weather_symbol
-    - sensor.weather_temperature
-    - sensor.weather_wind_speed
-    - sensor.weather_humidity
-    - sensor.weather_precipitation
-internet: 
-  name: Internet
+    - group.weather_now
+    - group.weather_today
+    - group.home_temperature
+lights:
+   name: Lights
+   entities:
+     - group.salon
+     - group.dyningroom_lights
+     - group.hall
+     - group.palier
+     - group.cbastien
+     - group.cparents
+network: 
+  name: Network
   view: yes
   entities:
-    - sensor.speedtest_download
-    - sensor.speedtest_ping
-    - sensor.speedtest_upload
+    - group.google_wifi
+    - group.speed_test
+    - group.transmission
+    - group.system
 groundfloor:
   name: Ground Floor
   view: yes
   entities:
-    - light.salon
-    - light.hue_white_lamp_1
-    - light.salle_a_manger
-    - light.hue_white_lamp_2
     - media_player.chromecastmornati
     - media_player.salon
+    - group.hall
+    - group.salon
+    - group.dyningroom
 firstfloor:
   name: First Floor
   view: yes
   entities:
-    - light.chambre_parents
-    - light.hue_color_chambre
-    - light.hue_white_lamp_1_2
-    - light.hue_chambre_amis
-    - light.chambre_bastien
-
+    - group.smoke
+    - group.palier
+    - group.cbastien
+    - group.cparents
 secondfloor:
   name: Second Floor
-  view: no
+  view: yes
+  entities:
+    - group.cgaia
+zwave_devices:
+  name: ZWave Devices
+  view: yes
+  entities:
+    - group.zwave_network
+salon:
+  name: Salon
+  entities:
+    - light.salon
+    - light.salon_2  
+dyningroom:
+  name: Salle a Manger
+  entities:
+    - light.salle_a_manger
+    - light.salle_a_manger_2
+    - climate.thermostat
+dyningroom_lights:
+   name: Lumiere salle a manger
+   entities:
+     - light.salle_a_manger
+     - light.salle_a_manger_2
+hall:
+  name: Entrée
+  entities: 
+    - light.entree
+    - light.lightstrip_escalier
+palier:
+  name: Palier
+  entities: 
+    - light.palier
+cbastien:
+  name: Chambre Bastien
+  entities:
+    - light.chambre_bastien  
+cparents:
+  name: Chambre Parents
+  entities:
+    - light.chambre_parents_principale
+    - light.table_de_chevet_julie
+    - light.table_de_chevet_marco  
+cgaia:
+  name: Chambre Gaia
+  entities:
+    - sensor.qubino_zmnhjd1_flush_dimmer_pilot_wire_temperature
+    - switch.qubino_zmnhjd1_flush_dimmer_pilot_wire_switch
+    - light.qubino_zmnhjd1_flush_dimmer_pilot_wire_level
+    - automation.set_qubino_to_stop
+    - automation.set_qubino_to_anti_freeze
+    - automation.set_qubino_to_eco
+    - automation.set_qubino_to_comfort
+    - automation.set_qubino_to_comfort_1
+    - automation.set_qubino_to_comfort_2
+zwave_network:
+  name: ZWave Network Devices
+  entities:
+    - zwave.qubino_zmnhjd1_flush_dimmer_pilot_wire
+    - zwave.aeotec_zw090_zstick_gen5_eu
+weather_now:
+  name: Weather
+  entities:
+    - sun.sun
+    - sensor.weather_icon 
+    - sensor.weather_summary
+    - sensor.weather_temperature
+    - sensor.weather_apparent_temperature
+    - sensor.weather_humidity
+    - sensor.weather_precip
+weather_today:
+  name: "Today"
+  entities:
+    - sensor.weather_daily_high_temperature
+    - sensor.weather_daily_low_temperature
+    - sensor.weather_precip_probability
+    - sensor.weather_hourly_summary
+    - sensor.weather_daily_summary
+home_temperature:
+  name: Home Temperature
+  entities:
+    - sensor.qubino_zmnhjd1_flush_dimmer_pilot_wire_temperature
+    - climate.thermostat
+google_wifi:
+  name: Google Wifi
+  entities:
+    - sensor.google_wifi_status
+    - sensor.google_wifi_current_version
+    - sensor.google_wifi_last_restart
+    - sensor.google_wifi_local_ip
+    - sensor.google_wifi_new_version
+    - sensor.google_wifi_uptime
+speed_test:
+  name: Speed Test
+  entities:
+    - sensor.speedtest_download
+    - sensor.speedtest_upload
+    - sensor.speedtest_ping
+transmission:
+  name: Transmission
+  entities: 
+    - sensor.transmission_status
+    - sensor.transmission_active_torrents
+    - sensor.transmission_down_speed
+    - sensor.transmission_up_speed
+system:
+  name: "HASSIO Pi"
+  entities:
+    - sensor.disk_use_percent_home 
+    - sensor.log_db_file_size
+    - sensor.memory_use_percent
+    - sensor.last_boot
+    - sensor.ipv4_address_eth0
+    - sensor.processor_use 
+    - sensor.ssl_cert
+

@@ -1,1 +1,69 @@
-[]
+- id: letsencrypt-renewal
+  alias: "Let's Encrypt Renewal"
+  trigger:
+  - platform: time
+    at: '00:00:00'
+  action:
+  - service: hassio.addon_restart
+    data:
+      addon: core_letsencrypt
+- alias: 'Set Qubino to Comfort'
+  trigger:
+    platform: state
+    entity_id: input_select.qubino
+    to: 'Comfort'
+  action:
+    service: light.turn_on
+    entity_id: light.qubino_zmnhjd1_flush_dimmer_pilot_wire_level 
+    data:
+      brightness: 100
+- alias: 'Set Qubino to Comfort -1'
+  trigger:
+    platform: state
+    entity_id: input_select.qubino
+    to: 'Comfort -1'
+  action:
+    service: light.turn_on
+    entity_id: light.qubino_zmnhjd1_flush_dimmer_pilot_wire_level
+    data:
+      brightness: 45
+- alias: 'Set Qubino to Comfort -2'
+  trigger:
+    platform: state
+    entity_id: input_select.qubino
+    to: 'Comfort -2'
+  action:
+    service: light.turn_on
+    entity_id: light.qubino_zmnhjd1_flush_dimmer_pilot_wire_level
+    data:
+      brightness: 35
+- alias: 'Set Qubino to Eco'
+  trigger:
+    platform: state
+    entity_id: input_select.qubino
+    to: 'Eco'
+  action:
+    service: light.turn_on
+    entity_id: light.qubino_zmnhjd1_flush_dimmer_pilot_wire_level
+    data:
+      brightness: 25
+- alias: 'Set Qubino to Anti Freeze'
+  trigger:
+    platform: state
+    entity_id: input_select.qubino
+    to: 'Anti Freeze'
+  action:
+    service: light.turn_on
+    entity_id: light.qubino_zmnhjd1_flush_dimmer_pilot_wire_level
+    data:
+      brightness: 15
+- alias: 'Set Qubino to Stop'
+  trigger:
+    platform: state
+    entity_id: input_select.qubino
+    to: 'Stop'
+  action:
+    service: light.turn_off
+    entity_id: light.qubino_zmnhjd1_flush_dimmer_pilot_wire_level
+    data:
+      brightness: 0 

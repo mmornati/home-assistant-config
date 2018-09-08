@@ -1,0 +1,20 @@
+- name: Ecole
+  latitude: !secret school_latitude
+  longitude: !secret school_longitude
+  radius: 100
+  icon: mdi:school
+- name: Decathlon Croix
+  latitude: 50.678919
+  longitude: 3.149257
+  radius: 100
+  incon: mdi:domain
+- name: Decathlon Campus
+  latitude: 50.646100
+  longitude: 3.142422
+  radius: 100
+  icon: mdi:domain
+- name: Decathlon Btwin Village
+  latitude: 50.618146
+  longitude: 3.084240
+  radius: 100
+  icon: mdi:basketball
