@@ -1,0 +1,3 @@
+sensor.qubino_zmnhjd1_flush_dimmer_pilot_wire_temperature:
+  ignored: false
+  polling_intensity: 1

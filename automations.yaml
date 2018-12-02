@@ -1,23 +1,26 @@
 - id: letsencrypt-renewal
-  alias: "Let's Encrypt Renewal"
+  alias: Let's Encrypt Renewal
   trigger:
   - platform: time
-    at: '00:00:00'
+    at: 00:00:00
   action:
   - service: hassio.addon_restart
     data:
       addon: core_letsencrypt
-- alias: 'Set Qubino to Comfort'
+- alias: Set Qubino to Comfort
+  initial_state: 'off'
   trigger:
     platform: state
     entity_id: input_select.qubino
     to: 'Comfort'
   action:
     service: light.turn_on
-    entity_id: light.qubino_zmnhjd1_flush_dimmer_pilot_wire_level 
+    entity_id: light.qubino_zmnhjd1_flush_dimmer_pilot_wire_level
     data:
       brightness: 100
-- alias: 'Set Qubino to Comfort -1'
+  id: 322e1962112842dab4defab990286212
+- alias: Set Qubino to Comfort -1
+  initial_state: 'off'
   trigger:
     platform: state
     entity_id: input_select.qubino
@@ -27,7 +30,9 @@
     entity_id: light.qubino_zmnhjd1_flush_dimmer_pilot_wire_level
     data:
       brightness: 45
-- alias: 'Set Qubino to Comfort -2'
+  id: bb19039062934ca5ba4f26ead890b4ee
+- alias: Set Qubino to Comfort -2
+  initial_state: 'off'
   trigger:
     platform: state
     entity_id: input_select.qubino
@@ -37,7 +42,9 @@
     entity_id: light.qubino_zmnhjd1_flush_dimmer_pilot_wire_level
     data:
       brightness: 35
-- alias: 'Set Qubino to Eco'
+  id: ee3069bd1f16476ea33ff4b1a875575a
+- alias: Set Qubino to Eco
+  initial_state: 'off'
   trigger:
     platform: state
     entity_id: input_select.qubino
@@ -47,7 +54,9 @@
     entity_id: light.qubino_zmnhjd1_flush_dimmer_pilot_wire_level
     data:
       brightness: 25
-- alias: 'Set Qubino to Anti Freeze'
+  id: 8397b8f4cccd4dca90996ba38e760ba4
+- alias: Set Qubino to Anti Freeze
+  initial_state: 'off'
   trigger:
     platform: state
     entity_id: input_select.qubino
@@ -57,7 +66,9 @@
     entity_id: light.qubino_zmnhjd1_flush_dimmer_pilot_wire_level
     data:
       brightness: 15
-- alias: 'Set Qubino to Stop'
+  id: 04d972cb89ba4fce96b669c95e4e4e48
+- alias: Set Qubino to Stop
+  initial_state: 'off'
   trigger:
     platform: state
     entity_id: input_select.qubino
@@ -66,4 +77,101 @@
     service: light.turn_off
     entity_id: light.qubino_zmnhjd1_flush_dimmer_pilot_wire_level
     data:
-      brightness: 0 
+      brightness: 0
+  id: 9d3e9fcf237449eaac1bd771e1509b0b
+- alias: Chambre Gaia - On Week Morning
+  initial_state: 'on'
+  trigger:
+    platform: time
+    at: '06:50:00'
+  condition:
+  - condition: time
+    weekday:
+    - mon
+    - tue
+    - wed
+    - thu
+    - fri
+  action:
+  - condition: state
+    entity_id: automation.set_qubino_to_comfort
+    state: 'on'
+- alias: Chambre Gaia - Off Week Morning
+  initial_state: 'on'
+  trigger:
+    platform: time
+    at: '08:00:00'
+  condition:
+  - condition: time
+    weekday:
+    - mon
+    - tue
+    - wed
+    - thu
+    - fri
+  action:
+  - condition: state
+    entity_id: automation.set_qubino_to_eco
+    state: 'on'
+- alias: Chambre Gaia - On Week Evening
+  initial_state: 'on'
+  trigger:
+    platform: time
+    at: '19:00:00'
+  condition:
+  - condition: time
+    weekday:
+    - mon
+    - tue
+    - wed
+    - thu
+    - fri
+  action:
+  - condition: state
+    entity_id: automation.set_qubino_to_confort
+    state: 'on'
+- alias: Chambre Gaia - Of Week Evening
+  initial_state: 'on'
+  trigger:
+    platform: time
+    at: '21:00:00'
+  condition:
+  - condition: time
+    weekday:
+    - mon
+    - tue
+    - wed
+    - thu
+    - fri
+  action:
+  - condition: state
+    entity_id: automation.set_qubino_to_comfort_2
+    state: 'on'
+- alias: Chambre Gaia - On weekend
+  initial_state: 'on'
+  trigger:
+    platform: time
+    at: '08:00:00'
+  condition:
+  - condition: time
+    weekday:
+    - sat
+    - sun
+  action:
+  - condition: state
+    entity_id: automation.set_qubino_to_comfort
+    state: 'on'
+- alias: Chambre Gaia - Off weekend
+  initial_state: 'on'
+  trigger:
+    platform: time
+    at: '21:00:00'
+  condition:
+  - condition: time
+    weekday:
+    - sat
+    - sun
+  action:
+  - condition: state
+    entity_id: automation.set_qubino_to_comfort_2
+    state: 'on'

@@ -51,6 +51,7 @@ network:
     - group.speed_test
     - group.transmission
     - group.system
+    - group.plex
 groundfloor:
   name: Ground Floor
   view: yes
@@ -119,12 +120,7 @@ cgaia:
     - sensor.qubino_zmnhjd1_flush_dimmer_pilot_wire_temperature
     - switch.qubino_zmnhjd1_flush_dimmer_pilot_wire_switch
     - light.qubino_zmnhjd1_flush_dimmer_pilot_wire_level
-    - automation.set_qubino_to_stop
-    - automation.set_qubino_to_anti_freeze
-    - automation.set_qubino_to_eco
-    - automation.set_qubino_to_comfort
-    - automation.set_qubino_to_comfort_1
-    - automation.set_qubino_to_comfort_2
+    - input_select.qubino
 zwave_network:
   name: ZWave Network Devices
   entities:
@@ -185,4 +181,9 @@ system:
     - sensor.ipv4_address_eth0
     - sensor.processor_use 
     - sensor.ssl_cert
+plex:
+  name: "Plex Media Server"
+  entities:
+    - sensor.plex_external_hd
+    - sensor.plex_internal_hd
 
