@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<aircast>
+<common>
+<enabled>1</enabled>
+<stop_receiver>0</stop_receiver>
+<media_volume>1.0000</media_volume>
+<latency></latency>
+<codec>flac</codec>
+<artwork></artwork>
+<metadata>1</metadata>
+</common>
+<main_log>info</main_log>
+<cast_log>info</cast_log>
+<util_log>warn</util_log>
+<log_limit>-1</log_limit>
+<device>
+<udn>669f7c6bc6f8364c70958fd0dab339bd</udn>
+<name>Salle Video+</name>
+<mac>cc:cc:6c:4c:e7:b1</mac>
+<enabled>1</enabled>
+</device>
+<device>
+<udn>f2bbbe50b79c94a6c6f7f4eacc7b2ff7</udn>
+<name>TV Salon+</name>
+<mac>cc:cc:b0:be:05:3e</mac>
+<enabled>1</enabled>
+</device>
+<device>
+<udn>a9d0afc29431ba26566b4404e8bb0523</udn>
+<name>Salon+</name>
+<mac>cc:cc:a5:e9:26:28</mac>
+<enabled>1</enabled>
+</device>
+<device>
+<udn>d9f4d0c5-7aa5-46de-b488-ad88733f5d8b</udn>
+<name>Maison+</name>
+<mac>cc:cc:0e:d7:7b:5c</mac>
+<enabled>1</enabled>
+</device>
+</aircast>

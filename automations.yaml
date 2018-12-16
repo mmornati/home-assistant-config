@@ -93,9 +93,10 @@
     - thu
     - fri
   action:
-  - condition: state
-    entity_id: automation.set_qubino_to_comfort
-    state: 'on'
+    service: light.turn_on
+    entity_id: light.qubino_zmnhjd1_flush_dimmer_pilot_wire_level
+    data:
+      brightness: 100
 - alias: Chambre Gaia - Off Week Morning
   initial_state: 'on'
   trigger:
@@ -110,9 +111,10 @@
     - thu
     - fri
   action:
-  - condition: state
-    entity_id: automation.set_qubino_to_eco
-    state: 'on'
+    service: light.turn_on
+    entity_id: light.qubino_zmnhjd1_flush_dimmer_pilot_wire_level
+    data:
+      brightness: 25
 - alias: Chambre Gaia - On Week Evening
   initial_state: 'on'
   trigger:
@@ -127,10 +129,11 @@
     - thu
     - fri
   action:
-  - condition: state
-    entity_id: automation.set_qubino_to_confort
-    state: 'on'
-- alias: Chambre Gaia - Of Week Evening
+    service: light.turn_on
+    entity_id: light.qubino_zmnhjd1_flush_dimmer_pilot_wire_level
+    data:
+      brightness: 100
+- alias: Chambre Gaia - Off Week Evening
   initial_state: 'on'
   trigger:
     platform: time
@@ -144,9 +147,10 @@
     - thu
     - fri
   action:
-  - condition: state
-    entity_id: automation.set_qubino_to_comfort_2
-    state: 'on'
+    service: light.turn_on
+    entity_id: light.qubino_zmnhjd1_flush_dimmer_pilot_wire_level
+    data:
+      brightness: 35
 - alias: Chambre Gaia - On weekend
   initial_state: 'on'
   trigger:
@@ -158,9 +162,10 @@
     - sat
     - sun
   action:
-  - condition: state
-    entity_id: automation.set_qubino_to_comfort
-    state: 'on'
+    service: light.turn_on
+    entity_id: light.qubino_zmnhjd1_flush_dimmer_pilot_wire_level
+    data:
+      brightness: 100
 - alias: Chambre Gaia - Off weekend
   initial_state: 'on'
   trigger:
@@ -172,6 +177,7 @@
     - sat
     - sun
   action:
-  - condition: state
-    entity_id: automation.set_qubino_to_comfort_2
-    state: 'on'
+    service: light.turn_on
+    entity_id: light.qubino_zmnhjd1_flush_dimmer_pilot_wire_level
+    data:
+      brightness: 35

@@ -14,11 +14,6 @@ security:
     - binary_sensor.mornatis_secur_someone_known
     - binary_sensor.mornatis_secur_someone_unknown
     - camera.mornatis_secur
-trackers:
-  name: Trackers
-  entities: 
-    - device_tracker.e0f847108954
-    - device_tracker.ptwnpkid_asusx00idb
 smoke:
   name: Smoke
   entities:
@@ -43,24 +38,25 @@ lights:
      - group.palier
      - group.cbastien
      - group.cparents
+     - group.camis_light
+     - group.toilette_light
 network: 
   name: Network
   view: yes
   entities:
     - group.google_wifi
     - group.speed_test
-    - group.transmission
-    - group.system
     - group.plex
 groundfloor:
   name: Ground Floor
   view: yes
   entities:
-    - media_player.chromecastmornati
+    - media_player.tv_salon
     - media_player.salon
     - group.hall
     - group.salon
     - group.dyningroom
+    - group.toilette
 firstfloor:
   name: First Floor
   view: yes
@@ -69,6 +65,7 @@ firstfloor:
     - group.palier
     - group.cbastien
     - group.cparents
+    - group.camis
 secondfloor:
   name: Second Floor
   view: yes
@@ -83,18 +80,21 @@ salon:
   name: Salon
   entities:
     - light.salon
-    - light.salon_2  
+    - light.salon_2
+    - light.onoff_plug_1
 dyningroom:
   name: Salle a Manger
   entities:
     - light.salle_a_manger
     - light.salle_a_manger_2
+    - light.hue_white_lamp_1_2
     - climate.thermostat
 dyningroom_lights:
    name: Lumiere salle a manger
    entities:
      - light.salle_a_manger
      - light.salle_a_manger_2
+     - light.hue_white_lamp_1_2
 hall:
   name: Entrée
   entities: 
@@ -121,6 +121,28 @@ cgaia:
     - switch.qubino_zmnhjd1_flush_dimmer_pilot_wire_switch
     - light.qubino_zmnhjd1_flush_dimmer_pilot_wire_level
     - input_select.qubino
+toilette:
+  name: Toilette
+  entities:
+    - light.dimmable_light_1
+    - light.dimmable_light_2
+    - light.dimmable_light_3
+    - sensor.toilette_temperature
+toilette_light:
+  name: Toilette Light
+  entities:
+    - light.dimmable_light_1
+    - light.dimmable_light_2
+    - light.dimmable_light_3
+camis: 
+  name: Salle Video
+  entities: 
+    - media_player.chromecastmornati
+    - light.hue_white_lamp_1
+camis_light: 
+  name: Salle Video Lights
+  entities: 
+    - light.hue_white_lamp_1
 zwave_network:
   name: ZWave Network Devices
   entities:
@@ -149,6 +171,7 @@ home_temperature:
   entities:
     - sensor.qubino_zmnhjd1_flush_dimmer_pilot_wire_temperature
     - climate.thermostat
+    - sensor.toilette_temperature
 google_wifi:
   name: Google Wifi
   entities:
@@ -164,23 +187,6 @@ speed_test:
     - sensor.speedtest_download
     - sensor.speedtest_upload
     - sensor.speedtest_ping
-transmission:
-  name: Transmission
-  entities: 
-    - sensor.transmission_status
-    - sensor.transmission_active_torrents
-    - sensor.transmission_down_speed
-    - sensor.transmission_up_speed
-system:
-  name: "HASSIO Pi"
-  entities:
-    - sensor.disk_use_percent_home 
-    - sensor.log_db_file_size
-    - sensor.memory_use_percent
-    - sensor.last_boot
-    - sensor.ipv4_address_eth0
-    - sensor.processor_use 
-    - sensor.ssl_cert
 plex:
   name: "Plex Media Server"
   entities:

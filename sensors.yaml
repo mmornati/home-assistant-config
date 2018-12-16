@@ -44,35 +44,24 @@
     - 'download_speed'
     - 'upload_speed'
     - 'active_torrents'
-- platform: systemmonitor
-  resources:
-    - type: disk_use_percent
-      arg: /home
-    - type: memory_use_percent
-    - type: ipv4_address
-      arg: eth0
-    - type: processor_use
-    - type: last_boot
-    - type: since_last_boot
-- platform: mqtt
-  state_topic: !secret owntrack_queue_marco
-  name: "Battery Asus Marco"
-  unit_of_measurement: "%"
-  value_template: '{{ value_json.batt }}'
-  device_class: battery
 - platform: tcp
   name: Plex Internal HD
-  host: !secret plex_ip
-  port: !secret plex_port
+  host: 192.168.0.24
+  port: 7634
   timeout: 5
   payload: "\n"
   value_template: "{{ value.split('|')[3] }}"
   unit_of_measurement: "°C"
 - platform: tcp
   name: Plex External HD
-  host: !secret plex_ip
-  port: !secret plex_port
+  host: 192.168.0.24
+  port: 7634
   timeout: 5
   payload: "\n"
   value_template: "{{ value.split('|')[8] }}"
   unit_of_measurement: "°C"
+- platform: rest
+  name: Toilette Temperature
+  resource: !secret toilette_temp_sensor
+  value_template: '{{ value_json.state.temperature | float / 100 }}'
+  unit_of_measurement: °C
