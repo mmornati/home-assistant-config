@@ -44,6 +44,8 @@
     - 'download_speed'
     - 'upload_speed'
     - 'active_torrents'
+    - 'paused_torrents'
+    - 'total_torrents'
 - platform: tcp
   name: Plex Internal HD
   host: 192.168.0.24
