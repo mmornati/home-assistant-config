@@ -125,13 +125,6 @@ views:
           - sensor.google_wifi_new_version
           - sensor.google_wifi_uptime
       - type: entities
-        title: Speed Test
-        show_header_toggle: true
-        entities:
-          - sensor.speedtest_download
-          - sensor.speedtest_upload
-          - sensor.speedtest_ping
-      - type: entities
         title: Plex Media Server
         show_header_toggle: true
         entities:

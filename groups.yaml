@@ -45,7 +45,6 @@ network:
   view: yes
   entities:
     - group.google_wifi
-    - group.speed_test
     - group.plex
 groundfloor:
   name: Ground Floor
@@ -181,12 +180,6 @@ google_wifi:
     - sensor.google_wifi_local_ip
     - sensor.google_wifi_new_version
     - sensor.google_wifi_uptime
-speed_test:
-  name: Speed Test
-  entities:
-    - sensor.speedtest_download
-    - sensor.speedtest_upload
-    - sensor.speedtest_ping
 plex:
   name: "Plex Media Server"
   entities:

@@ -17,35 +17,12 @@
     - daily_summary
     - temperature_max
     - temperature_min
-- platform: speedtest
-  minute: 30
-  hour:
-    - 0
-    - 6
-    - 12
-    - 18
-  monitored_conditions:
-    - ping
-    - download
-    - upload
 - platform: nest
   monitored_conditions:
     - 'battery_level'
     - 'co_status'
     - 'smoke_status'
 - platform: google_wifi
-- platform: transmission
-  host: !secret rpi_ip
-  port: 9091
-  username: !secret transmission_user
-  password: !secret transmission_pass
-  monitored_variables:
-    - 'current_status'
-    - 'download_speed'
-    - 'upload_speed'
-    - 'active_torrents'
-    - 'paused_torrents'
-    - 'total_torrents'
 - platform: tcp
   name: Plex Internal HD
   host: 192.168.0.24
