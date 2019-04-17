@@ -87,7 +87,7 @@ dyningroom:
     - light.salle_a_manger
     - light.salle_a_manger_2
     - light.hue_white_lamp_1_2
-    - climate.thermostat
+    - climate.netatmo_salon
 dyningroom_lights:
    name: Lumiere salle a manger
    entities:
@@ -169,7 +169,7 @@ home_temperature:
   name: Home Temperature
   entities:
     - sensor.qubino_zmnhjd1_flush_dimmer_pilot_wire_temperature
-    - climate.thermostat
+    - climate.netatmo_salon
     - sensor.toilette_temperature
 google_wifi:
   name: Google Wifi

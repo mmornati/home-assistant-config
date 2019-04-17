@@ -34,7 +34,7 @@ views:
         show_header_toggle: true
         entities:
           - sensor.qubino_zmnhjd1_flush_dimmer_pilot_wire_temperature
-          - climate.thermostat
+          - climate.netatmo_salon
           - sensor.toilette_temperature
       - type: entities
         title: Salon
@@ -110,7 +110,7 @@ views:
         show_header_toggle: true
         entities:
           - sensor.qubino_zmnhjd1_flush_dimmer_pilot_wire_temperature
-          - climate.thermostat
+          - climate.netatmo_salon
           - sensor.toilette_temperature
   - title: Network
     cards:
@@ -156,7 +156,7 @@ views:
           - light.salle_a_manger
           - light.salle_a_manger_2
           - light.hue_white_lamp_1_2
-          - climate.thermostat
+          - climate.netatmo_salon
       - type: entities
         title: Toilette
         show_header_toggle: true

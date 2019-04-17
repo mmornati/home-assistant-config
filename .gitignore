@@ -16,3 +16,4 @@ options.xml
 *.sqlite
 ._*
 zw*.xml
+aircast.xml

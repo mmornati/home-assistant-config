@@ -63,7 +63,8 @@ sun:
 # Text to speech
 tts:
   - platform: google
-    language: 'fr'
+    cache: true
+    cache_dir: /tmp/tts
 
 climate:
   - platform: netatmo
@@ -99,19 +100,18 @@ mqtt:
   username: !secret mqtt_username
   password: !secret mqtt_password
 
-device_tracker:
-  - platform: owntracks
-    max_gps_accuracy: 200
-
-media_player:
-  - platform: plex
-    host: 192.168.0.24
-    port: 32400
+influxdb:
+  host: localhost
+  port: 8086
+  database: homeassistant
+  username: !secret influx_username
+  password: !secret influx_password
+  max_retries: 3
+  default_measurement: state
 
 zwave:
   usb_path: /dev/ttyACM0
-  network_key: !secret zwave_secret_key 
-
+  network_key: !secret zwave_secret_key
 input_select:
   qubino:
     name: Qubino Modes
@@ -123,8 +123,8 @@ input_select:
      - Comfort -1
      - Comfort
     initial: Comfort
-
 sensor: !include sensors.yaml
+binary_sensor: !include binary_sensors.yaml
 frontend: !include frontend.yaml
 panel_custom: !include panel_custom.yaml
 group: !include groups.yaml

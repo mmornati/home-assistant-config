@@ -23,22 +23,6 @@
     - 'co_status'
     - 'smoke_status'
 - platform: google_wifi
-- platform: tcp
-  name: Plex Internal HD
-  host: 192.168.0.24
-  port: 7634
-  timeout: 5
-  payload: "\n"
-  value_template: "{{ value.split('|')[3] }}"
-  unit_of_measurement: "°C"
-- platform: tcp
-  name: Plex External HD
-  host: 192.168.0.24
-  port: 7634
-  timeout: 5
-  payload: "\n"
-  value_template: "{{ value.split('|')[8] }}"
-  unit_of_measurement: "°C"
 - platform: rest
   name: Toilette Temperature
   resource: !secret toilette_temp_sensor

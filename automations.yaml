@@ -134,7 +134,7 @@
     data:
       brightness: 100
 - alias: Chambre Gaia - Off Week Evening
-  initial_state: 'on'
+  initial_state: 'off'
   trigger:
     platform: time
     at: '21:00:00'
@@ -167,7 +167,7 @@
     data:
       brightness: 100
 - alias: Chambre Gaia - Off weekend
-  initial_state: 'on'
+  initial_state: 'off'
   trigger:
     platform: time
     at: '21:00:00'
@@ -181,3 +181,30 @@
     entity_id: light.qubino_zmnhjd1_flush_dimmer_pilot_wire_level
     data:
       brightness: 35
+- alias: 'Washing Machine is done'
+  trigger:
+    platform: state
+    entity_id: binary_sensor.washmachine
+    from: 'on'
+    to: 'off'
+    for:
+      hours: 0
+      minutes: 7
+      seconds: 0
+  action:
+    - service: tts.google_say
+      entity_id: media_player.salon
+      data:
+        message: 'La machine à laver vient de terminer son cycle.'
+- alias: 'Kitchen Door Opened'
+  trigger:
+    platform: state
+    entity_id: binary_sensor.door_back
+    from: 'off'
+    to: 'on'
+  action:
+    - service: tts.google_say
+      entity_id: media_player.salon
+      data:
+        message: 'La porte de la cousine est ouverte.'
+
